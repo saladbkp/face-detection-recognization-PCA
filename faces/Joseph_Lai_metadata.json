@@ -1,0 +1,1162 @@
+{
+  "video_name": "Joseph_Lai.mp4",
+  "person_name": "Joseph_Lai",
+  "detection_timestamp": "2025-08-19T23:38:57.565752",
+  "faces": [
+    {
+      "face_id": 1,
+      "frame_number": 1,
+      "filename": "Joseph_Lai_face_0001.jpg",
+      "bbox": {
+        "x": 95,
+        "y": 368,
+        "width": 267,
+        "height": 267
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 2,
+      "frame_number": 2,
+      "filename": "Joseph_Lai_face_0002.jpg",
+      "bbox": {
+        "x": 97,
+        "y": 370,
+        "width": 266,
+        "height": 266
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 3,
+      "frame_number": 3,
+      "filename": "Joseph_Lai_face_0003.jpg",
+      "bbox": {
+        "x": 96,
+        "y": 369,
+        "width": 268,
+        "height": 268
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 4,
+      "frame_number": 4,
+      "filename": "Joseph_Lai_face_0004.jpg",
+      "bbox": {
+        "x": 99,
+        "y": 369,
+        "width": 270,
+        "height": 270
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 5,
+      "frame_number": 5,
+      "filename": "Joseph_Lai_face_0005.jpg",
+      "bbox": {
+        "x": 108,
+        "y": 376,
+        "width": 261,
+        "height": 261
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 6,
+      "frame_number": 6,
+      "filename": "Joseph_Lai_face_0006.jpg",
+      "bbox": {
+        "x": 102,
+        "y": 367,
+        "width": 273,
+        "height": 273
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 7,
+      "frame_number": 7,
+      "filename": "Joseph_Lai_face_0007.jpg",
+      "bbox": {
+        "x": 107,
+        "y": 370,
+        "width": 268,
+        "height": 268
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 8,
+      "frame_number": 8,
+      "filename": "Joseph_Lai_face_0008.jpg",
+      "bbox": {
+        "x": 110,
+        "y": 371,
+        "width": 269,
+        "height": 269
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 9,
+      "frame_number": 9,
+      "filename": "Joseph_Lai_face_0009.jpg",
+      "bbox": {
+        "x": 114,
+        "y": 374,
+        "width": 264,
+        "height": 264
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 10,
+      "frame_number": 10,
+      "filename": "Joseph_Lai_face_0010.jpg",
+      "bbox": {
+        "x": 118,
+        "y": 375,
+        "width": 262,
+        "height": 262
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 11,
+      "frame_number": 11,
+      "filename": "Joseph_Lai_face_0011.jpg",
+      "bbox": {
+        "x": 124,
+        "y": 377,
+        "width": 262,
+        "height": 262
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 12,
+      "frame_number": 12,
+      "filename": "Joseph_Lai_face_0012.jpg",
+      "bbox": {
+        "x": 126,
+        "y": 379,
+        "width": 256,
+        "height": 256
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 13,
+      "frame_number": 13,
+      "filename": "Joseph_Lai_face_0013.jpg",
+      "bbox": {
+        "x": 131,
+        "y": 384,
+        "width": 253,
+        "height": 253
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 14,
+      "frame_number": 14,
+      "filename": "Joseph_Lai_face_0014.jpg",
+      "bbox": {
+        "x": 120,
+        "y": 372,
+        "width": 273,
+        "height": 273
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 15,
+      "frame_number": 15,
+      "filename": "Joseph_Lai_face_0015.jpg",
+      "bbox": {
+        "x": 127,
+        "y": 378,
+        "width": 266,
+        "height": 266
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 16,
+      "frame_number": 16,
+      "filename": "Joseph_Lai_face_0016.jpg",
+      "bbox": {
+        "x": 137,
+        "y": 384,
+        "width": 255,
+        "height": 255
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 17,
+      "frame_number": 17,
+      "filename": "Joseph_Lai_face_0017.jpg",
+      "bbox": {
+        "x": 144,
+        "y": 383,
+        "width": 250,
+        "height": 250
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 18,
+      "frame_number": 18,
+      "filename": "Joseph_Lai_face_0018.jpg",
+      "bbox": {
+        "x": 149,
+        "y": 384,
+        "width": 248,
+        "height": 248
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 19,
+      "frame_number": 19,
+      "filename": "Joseph_Lai_face_0019.jpg",
+      "bbox": {
+        "x": 152,
+        "y": 381,
+        "width": 251,
+        "height": 251
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 20,
+      "frame_number": 20,
+      "filename": "Joseph_Lai_face_0020.jpg",
+      "bbox": {
+        "x": 139,
+        "y": 366,
+        "width": 273,
+        "height": 273
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 21,
+      "frame_number": 21,
+      "filename": "Joseph_Lai_face_0021.jpg",
+      "bbox": {
+        "x": 149,
+        "y": 380,
+        "width": 256,
+        "height": 256
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 22,
+      "frame_number": 22,
+      "filename": "Joseph_Lai_face_0022.jpg",
+      "bbox": {
+        "x": 156,
+        "y": 375,
+        "width": 260,
+        "height": 260
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 23,
+      "frame_number": 23,
+      "filename": "Joseph_Lai_face_0023.jpg",
+      "bbox": {
+        "x": 162,
+        "y": 382,
+        "width": 249,
+        "height": 249
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 24,
+      "frame_number": 24,
+      "filename": "Joseph_Lai_face_0024.jpg",
+      "bbox": {
+        "x": 167,
+        "y": 391,
+        "width": 237,
+        "height": 237
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 25,
+      "frame_number": 25,
+      "filename": "Joseph_Lai_face_0025.jpg",
+      "bbox": {
+        "x": 167,
+        "y": 384,
+        "width": 248,
+        "height": 248
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 26,
+      "frame_number": 26,
+      "filename": "Joseph_Lai_face_0026.jpg",
+      "bbox": {
+        "x": 163,
+        "y": 377,
+        "width": 258,
+        "height": 258
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 27,
+      "frame_number": 27,
+      "filename": "Joseph_Lai_face_0027.jpg",
+      "bbox": {
+        "x": 158,
+        "y": 376,
+        "width": 266,
+        "height": 266
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 28,
+      "frame_number": 28,
+      "filename": "Joseph_Lai_face_0028.jpg",
+      "bbox": {
+        "x": 171,
+        "y": 385,
+        "width": 245,
+        "height": 245
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 29,
+      "frame_number": 61,
+      "filename": "Joseph_Lai_face_0029.jpg",
+      "bbox": {
+        "x": 78,
+        "y": 634,
+        "width": 51,
+        "height": 51
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 30,
+      "frame_number": 70,
+      "filename": "Joseph_Lai_face_0030.jpg",
+      "bbox": {
+        "x": 146,
+        "y": 403,
+        "width": 242,
+        "height": 242
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 31,
+      "frame_number": 71,
+      "filename": "Joseph_Lai_face_0031.jpg",
+      "bbox": {
+        "x": 134,
+        "y": 408,
+        "width": 234,
+        "height": 234
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 32,
+      "frame_number": 72,
+      "filename": "Joseph_Lai_face_0032.jpg",
+      "bbox": {
+        "x": 108,
+        "y": 397,
+        "width": 254,
+        "height": 254
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 33,
+      "frame_number": 73,
+      "filename": "Joseph_Lai_face_0033.jpg",
+      "bbox": {
+        "x": 93,
+        "y": 395,
+        "width": 256,
+        "height": 256
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 34,
+      "frame_number": 74,
+      "filename": "Joseph_Lai_face_0034.jpg",
+      "bbox": {
+        "x": 80,
+        "y": 396,
+        "width": 263,
+        "height": 263
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 35,
+      "frame_number": 75,
+      "filename": "Joseph_Lai_face_0035.jpg",
+      "bbox": {
+        "x": 71,
+        "y": 398,
+        "width": 261,
+        "height": 261
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 36,
+      "frame_number": 76,
+      "filename": "Joseph_Lai_face_0036.jpg",
+      "bbox": {
+        "x": 65,
+        "y": 398,
+        "width": 261,
+        "height": 261
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 37,
+      "frame_number": 77,
+      "filename": "Joseph_Lai_face_0037.jpg",
+      "bbox": {
+        "x": 51,
+        "y": 396,
+        "width": 267,
+        "height": 267
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 38,
+      "frame_number": 78,
+      "filename": "Joseph_Lai_face_0038.jpg",
+      "bbox": {
+        "x": 50,
+        "y": 398,
+        "width": 260,
+        "height": 260
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 39,
+      "frame_number": 79,
+      "filename": "Joseph_Lai_face_0039.jpg",
+      "bbox": {
+        "x": 33,
+        "y": 391,
+        "width": 271,
+        "height": 271
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 40,
+      "frame_number": 80,
+      "filename": "Joseph_Lai_face_0040.jpg",
+      "bbox": {
+        "x": 36,
+        "y": 399,
+        "width": 258,
+        "height": 258
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 41,
+      "frame_number": 81,
+      "filename": "Joseph_Lai_face_0041.jpg",
+      "bbox": {
+        "x": 23,
+        "y": 391,
+        "width": 265,
+        "height": 265
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 42,
+      "frame_number": 82,
+      "filename": "Joseph_Lai_face_0042.jpg",
+      "bbox": {
+        "x": 18,
+        "y": 392,
+        "width": 261,
+        "height": 261
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 43,
+      "frame_number": 83,
+      "filename": "Joseph_Lai_face_0043.jpg",
+      "bbox": {
+        "x": 14,
+        "y": 402,
+        "width": 244,
+        "height": 244
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 44,
+      "frame_number": 84,
+      "filename": "Joseph_Lai_face_0044.jpg",
+      "bbox": {
+        "x": 7,
+        "y": 404,
+        "width": 244,
+        "height": 244
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 45,
+      "frame_number": 85,
+      "filename": "Joseph_Lai_face_0045.jpg",
+      "bbox": {
+        "x": 6,
+        "y": 411,
+        "width": 234,
+        "height": 234
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 46,
+      "frame_number": 86,
+      "filename": "Joseph_Lai_face_0046.jpg",
+      "bbox": {
+        "x": 8,
+        "y": 423,
+        "width": 212,
+        "height": 212
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 47,
+      "frame_number": 94,
+      "filename": "Joseph_Lai_face_0047.jpg",
+      "bbox": {
+        "x": 35,
+        "y": 534,
+        "width": 98,
+        "height": 98
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 48,
+      "frame_number": 102,
+      "filename": "Joseph_Lai_face_0048.jpg",
+      "bbox": {
+        "x": 42,
+        "y": 530,
+        "width": 108,
+        "height": 108
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 49,
+      "frame_number": 103,
+      "filename": "Joseph_Lai_face_0049.jpg",
+      "bbox": {
+        "x": 11,
+        "y": 403,
+        "width": 255,
+        "height": 255
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 50,
+      "frame_number": 104,
+      "filename": "Joseph_Lai_face_0050.jpg",
+      "bbox": {
+        "x": 51,
+        "y": 530,
+        "width": 107,
+        "height": 107
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 51,
+      "frame_number": 105,
+      "filename": "Joseph_Lai_face_0051.jpg",
+      "bbox": {
+        "x": 13,
+        "y": 404,
+        "width": 257,
+        "height": 257
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 52,
+      "frame_number": 106,
+      "filename": "Joseph_Lai_face_0052.jpg",
+      "bbox": {
+        "x": 18,
+        "y": 405,
+        "width": 254,
+        "height": 254
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 53,
+      "frame_number": 107,
+      "filename": "Joseph_Lai_face_0053.jpg",
+      "bbox": {
+        "x": 19,
+        "y": 414,
+        "width": 237,
+        "height": 237
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 54,
+      "frame_number": 108,
+      "filename": "Joseph_Lai_face_0054.jpg",
+      "bbox": {
+        "x": 19,
+        "y": 412,
+        "width": 241,
+        "height": 241
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 55,
+      "frame_number": 109,
+      "filename": "Joseph_Lai_face_0055.jpg",
+      "bbox": {
+        "x": 19,
+        "y": 416,
+        "width": 235,
+        "height": 235
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 56,
+      "frame_number": 110,
+      "filename": "Joseph_Lai_face_0056.jpg",
+      "bbox": {
+        "x": 27,
+        "y": 420,
+        "width": 227,
+        "height": 227
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 57,
+      "frame_number": 111,
+      "filename": "Joseph_Lai_face_0057.jpg",
+      "bbox": {
+        "x": 25,
+        "y": 413,
+        "width": 237,
+        "height": 237
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 58,
+      "frame_number": 112,
+      "filename": "Joseph_Lai_face_0058.jpg",
+      "bbox": {
+        "x": 31,
+        "y": 409,
+        "width": 240,
+        "height": 240
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 59,
+      "frame_number": 113,
+      "filename": "Joseph_Lai_face_0059.jpg",
+      "bbox": {
+        "x": 29,
+        "y": 402,
+        "width": 251,
+        "height": 251
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 60,
+      "frame_number": 114,
+      "filename": "Joseph_Lai_face_0060.jpg",
+      "bbox": {
+        "x": 34,
+        "y": 399,
+        "width": 257,
+        "height": 257
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 61,
+      "frame_number": 115,
+      "filename": "Joseph_Lai_face_0061.jpg",
+      "bbox": {
+        "x": 41,
+        "y": 399,
+        "width": 254,
+        "height": 254
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 62,
+      "frame_number": 116,
+      "filename": "Joseph_Lai_face_0062.jpg",
+      "bbox": {
+        "x": 49,
+        "y": 400,
+        "width": 252,
+        "height": 252
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 63,
+      "frame_number": 117,
+      "filename": "Joseph_Lai_face_0063.jpg",
+      "bbox": {
+        "x": 48,
+        "y": 396,
+        "width": 263,
+        "height": 263
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 64,
+      "frame_number": 118,
+      "filename": "Joseph_Lai_face_0064.jpg",
+      "bbox": {
+        "x": 55,
+        "y": 396,
+        "width": 261,
+        "height": 261
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 65,
+      "frame_number": 119,
+      "filename": "Joseph_Lai_face_0065.jpg",
+      "bbox": {
+        "x": 60,
+        "y": 398,
+        "width": 262,
+        "height": 262
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 66,
+      "frame_number": 120,
+      "filename": "Joseph_Lai_face_0066.jpg",
+      "bbox": {
+        "x": 61,
+        "y": 395,
+        "width": 265,
+        "height": 265
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 67,
+      "frame_number": 121,
+      "filename": "Joseph_Lai_face_0067.jpg",
+      "bbox": {
+        "x": 65,
+        "y": 393,
+        "width": 267,
+        "height": 267
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 68,
+      "frame_number": 122,
+      "filename": "Joseph_Lai_face_0068.jpg",
+      "bbox": {
+        "x": 69,
+        "y": 394,
+        "width": 267,
+        "height": 267
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 69,
+      "frame_number": 123,
+      "filename": "Joseph_Lai_face_0069.jpg",
+      "bbox": {
+        "x": 70,
+        "y": 392,
+        "width": 269,
+        "height": 269
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 70,
+      "frame_number": 124,
+      "filename": "Joseph_Lai_face_0070.jpg",
+      "bbox": {
+        "x": 74,
+        "y": 393,
+        "width": 269,
+        "height": 269
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 71,
+      "frame_number": 125,
+      "filename": "Joseph_Lai_face_0071.jpg",
+      "bbox": {
+        "x": 85,
+        "y": 399,
+        "width": 260,
+        "height": 260
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 72,
+      "frame_number": 126,
+      "filename": "Joseph_Lai_face_0072.jpg",
+      "bbox": {
+        "x": 84,
+        "y": 396,
+        "width": 266,
+        "height": 266
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 73,
+      "frame_number": 127,
+      "filename": "Joseph_Lai_face_0073.jpg",
+      "bbox": {
+        "x": 82,
+        "y": 390,
+        "width": 274,
+        "height": 274
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 74,
+      "frame_number": 128,
+      "filename": "Joseph_Lai_face_0074.jpg",
+      "bbox": {
+        "x": 86,
+        "y": 389,
+        "width": 275,
+        "height": 275
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 75,
+      "frame_number": 129,
+      "filename": "Joseph_Lai_face_0075.jpg",
+      "bbox": {
+        "x": 91,
+        "y": 392,
+        "width": 274,
+        "height": 274
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 76,
+      "frame_number": 130,
+      "filename": "Joseph_Lai_face_0076.jpg",
+      "bbox": {
+        "x": 92,
+        "y": 393,
+        "width": 271,
+        "height": 271
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    },
+    {
+      "face_id": 77,
+      "frame_number": 131,
+      "filename": "Joseph_Lai_face_0077.jpg",
+      "bbox": {
+        "x": 93,
+        "y": 393,
+        "width": 271,
+        "height": 271
+      },
+      "face_size": {
+        "width": 100,
+        "height": 100
+      }
+    }
+  ]
+}

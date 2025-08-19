@@ -1,0 +1,16 @@
+# Face Detection and Recognition Project Dependencies
+# Core computer vision library
+opencv-python==4.8.1.78
+
+# Numerical computing
+numpy==1.24.3
+
+# Note: This project uses manual PCA implementation
+# No machine learning libraries (like scikit-learn) are used
+# as per project requirements
+
+# Standard library modules used (no installation required):
+# - pickle (for model serialization)
+# - json (for metadata storage)
+# - os (for file operations)
+# - datetime (for timestamps)
