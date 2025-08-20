@@ -1,0 +1,21 @@
+{
+  "person_name": "Joseph_Lai",
+  "version": "dark",
+  "training_timestamp": "2025-08-20T04:03:56.181543",
+  "n_components": 50,
+  "face_dimensions": 10000,
+  "n_training_images": 512,
+  "explained_variance_ratio": [
+    0.6902009667626176,
+    0.10327283294911883,
+    0.042983781325248785,
+    0.02039972143516711,
+    0.01513520208528191,
+    0.013435739417268175,
+    0.012082406233854637,
+    0.009859165644063073,
+    0.007862399908477712,
+    0.006645612766292527
+  ],
+  "model_file": "Joseph_Lai_dark_pca_model.pkl"
+}

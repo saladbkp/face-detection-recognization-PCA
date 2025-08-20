@@ -32,6 +32,29 @@ def load_pca_model(model_path):
         print(f"Error loading PCA model: {str(e)}")
         return None
 
+def load_dual_pca_models(dark_model_path, light_model_path):
+    """
+    Load both dark and light PCA models
+    
+    Args:
+        dark_model_path (str): Path to the dark version PCA model
+        light_model_path (str): Path to the light version PCA model
+    
+    Returns:
+        tuple: (dark_model_data, light_model_data)
+    """
+    print("=== Loading Dual PCA Models ===")
+    
+    dark_model = load_pca_model(dark_model_path)
+    light_model = load_pca_model(light_model_path)
+    
+    if dark_model is None or light_model is None:
+        print("Error: Failed to load one or both models")
+        return None, None
+    
+    print("Both models loaded successfully!")
+    return dark_model, light_model
+
 def cosine_similarity(vec1, vec2):
     """
     Calculate cosine similarity between two vectors
@@ -108,9 +131,43 @@ def recognize_face(face_vector, model_data, similarity_threshold=0.7):
     
     return person_name, max_similarity, is_recognized
 
+def recognize_face_dual_model(face_vector, dark_model_data, light_model_data, similarity_threshold=0.7):
+    """
+    Recognize a face using both dark and light PCA models (OR logic)
+    
+    Args:
+        face_vector (np.array): Flattened face image to recognize
+        dark_model_data (dict): Dark version PCA model data
+        light_model_data (dict): Light version PCA model data
+        similarity_threshold (float): Minimum similarity for recognition
+    
+    Returns:
+        tuple: (person_name, best_confidence, is_recognized, dark_similarity, light_similarity)
+    """
+    # Test with dark model
+    dark_name, dark_similarity, dark_recognized = recognize_face(
+        face_vector, dark_model_data, similarity_threshold
+    )
+    
+    # Test with light model
+    light_name, light_similarity, light_recognized = recognize_face(
+        face_vector, light_model_data, similarity_threshold
+    )
+    
+    # OR logic: recognized if either model recognizes the face
+    is_recognized = dark_recognized or light_recognized
+    
+    # Use the higher similarity as the best confidence
+    best_confidence = max(dark_similarity, light_similarity)
+    
+    # Use the person name from the model with higher similarity
+    person_name = dark_name if dark_similarity >= light_similarity else light_name
+    
+    return person_name, best_confidence, is_recognized, dark_similarity, light_similarity
+
 def detect_and_recognize_faces(frame, face_cascade, model_data, similarity_threshold=0.7):
     """
-    Detect and recognize faces in a frame
+    Detect and recognize faces in a frame (single model version)
     
     Args:
         frame (np.array): Input video frame
@@ -157,6 +214,59 @@ def detect_and_recognize_faces(frame, face_cascade, model_data, similarity_thres
     
     return results
 
+def detect_and_recognize_faces_dual_model(frame, face_cascade, dark_model_data, light_model_data, similarity_threshold=0.7):
+    """
+    Detect and recognize faces in a frame using dual models (dark + light)
+    
+    Args:
+        frame (np.array): Input video frame
+        face_cascade: OpenCV face cascade classifier
+        dark_model_data (dict): Dark version PCA model data
+        light_model_data (dict): Light version PCA model data
+        similarity_threshold (float): Recognition threshold
+    
+    Returns:
+        list: List of detection results [(x, y, w, h, name, confidence, recognized)]
+    """
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    
+    # Detect faces
+    faces = face_cascade.detectMultiScale(
+        gray,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(30, 30)
+    )
+    
+    results = []
+    
+    for i, (x, y, w, h) in enumerate(faces):
+        # Extract face region
+        face_roi = gray[y:y+h, x:x+w]
+        
+        # Resize face to match training data dimensions
+        face_dim = int(np.sqrt(dark_model_data['face_dimensions']))
+        face_resized = cv2.resize(face_roi, (face_dim, face_dim))
+        
+        # Flatten face to vector
+        face_vector = face_resized.flatten().astype(np.float64)
+        
+        # Recognize face using dual models
+        person_name, best_confidence, is_recognized, dark_similarity, light_similarity = recognize_face_dual_model(
+            face_vector, dark_model_data, light_model_data, similarity_threshold
+        )
+        
+        # Print detailed similarity values for debugging
+        status = "RECOGNIZED" if is_recognized else "UNKNOWN"
+        print(f"Face {i+1} at position ({x}, {y}, {w}x{h}):")
+        print(f"  Dark model:  similarity={dark_similarity:.4f}, threshold={similarity_threshold:.4f}")
+        print(f"  Light model: similarity={light_similarity:.4f}, threshold={similarity_threshold:.4f}")
+        print(f"  Best confidence: {best_confidence:.4f}, Status: {status}")
+        
+        results.append((x, y, w, h, person_name, best_confidence, is_recognized))
+    
+    return results
+
 def draw_face_annotations(frame, detection_results):
     """
     Draw bounding boxes and labels on detected faces
@@ -171,6 +281,11 @@ def draw_face_annotations(frame, detection_results):
     annotated_frame = frame.copy()
     
     for (x, y, w, h, person_name, confidence, is_recognized) in detection_results:
+        # Skip detection results with confidence < 0.3 and not recognized
+        # Also skip faces smaller than 200x200 pixels as they indicate no real face was detected
+        if (confidence < 0.3 and not is_recognized) or (w < 200 or h < 200):
+            continue
+            
         # All face detection boxes are RED SQUARES
         box_color = (0, 0, 255)  # Red color for all detection boxes
         
@@ -214,22 +329,23 @@ def draw_face_annotations(frame, detection_results):
     
     return annotated_frame
 
-def process_video(input_video_path, model_path, output_video_path, similarity_threshold=0.7):
+def process_video(input_video_path, dark_model_path, light_model_path, output_video_path, similarity_threshold=0.7):
     """
-    Process video to detect and recognize faces
+    Process video to detect and recognize faces using dual models
     
     Args:
         input_video_path (str): Path to input video
-        model_path (str): Path to PCA model file
+        dark_model_path (str): Path to dark PCA model file
+        light_model_path (str): Path to light PCA model file
         output_video_path (str): Path to save output video
         similarity_threshold (float): Recognition threshold
     
     Returns:
         bool: Success status
     """
-    # Load PCA model
-    model_data = load_pca_model(model_path)
-    if model_data is None:
+    # Load dual PCA models
+    dark_model_data, light_model_data = load_dual_pca_models(dark_model_path, light_model_path)
+    if dark_model_data is None or light_model_data is None:
         return False
     
     # Initialize face cascade
@@ -270,9 +386,9 @@ def process_video(input_video_path, model_path, output_video_path, similarity_th
         
         frame_count += 1
         
-        # Detect and recognize faces
-        detection_results = detect_and_recognize_faces(
-            frame, face_cascade, model_data, similarity_threshold
+        # Detect and recognize faces using dual models
+        detection_results = detect_and_recognize_faces_dual_model(
+            frame, face_cascade, dark_model_data, light_model_data, similarity_threshold
         )
         
         # Update statistics
@@ -312,20 +428,21 @@ def process_video(input_video_path, model_path, output_video_path, similarity_th
     
     return True
 
-def process_live_camera(model_path, similarity_threshold=0.7):
+def process_live_camera(dark_model_path, light_model_path, similarity_threshold=0.7):
     """
-    Process live camera feed to detect and recognize faces in real-time
+    Process live camera feed to detect and recognize faces in real-time using dual models
     
     Args:
-        model_path (str): Path to PCA model file
+        dark_model_path (str): Path to dark PCA model file
+        light_model_path (str): Path to light PCA model file
         similarity_threshold (float): Recognition threshold
     
     Returns:
         bool: Success status
     """
-    # Load PCA model
-    model_data = load_pca_model(model_path)
-    if model_data is None:
+    # Load dual PCA models
+    dark_model_data, light_model_data = load_dual_pca_models(dark_model_path, light_model_path)
+    if dark_model_data is None or light_model_data is None:
         return False
     
     # Initialize face cascade
@@ -352,9 +469,9 @@ def process_live_camera(model_path, similarity_threshold=0.7):
             print("Error: Could not read frame from camera")
             break
         
-        # Detect and recognize faces
-        detection_results = detect_and_recognize_faces(
-            frame, face_cascade, model_data, similarity_threshold
+        # Detect and recognize faces using dual models
+        detection_results = detect_and_recognize_faces_dual_model(
+            frame, face_cascade, dark_model_data, light_model_data, similarity_threshold
         )
         
         # Draw annotations
@@ -384,19 +501,22 @@ def main():
     
     args = parser.parse_args()
     
-    # Configuration
-    model_file = "models/Joseph_Lai_pca_model.pkl"
-    similarity_threshold = 0.9  # Adjust based on requirements
+    # Configuration - Dual model paths
+    dark_model_file = "models/Joseph_Lai_dark_pca_model.pkl"
+    light_model_file = "models/Joseph_Lai_light_pca_model.pkl"
+    similarity_threshold = 0.8
     
     try:
-        # Check if model file exists
-        if not os.path.exists(model_file):
-            raise FileNotFoundError(f"PCA model not found: {model_file}")
+        # Check if both model files exist
+        if not os.path.exists(dark_model_file):
+            raise FileNotFoundError(f"Dark PCA model not found: {dark_model_file}")
+        if not os.path.exists(light_model_file):
+            raise FileNotFoundError(f"Light PCA model not found: {light_model_file}")
         
         if args.live:
             # Live camera mode
-            print("Starting live camera mode...")
-            success = process_live_camera(model_file, similarity_threshold)
+            print("Starting live camera mode with dual models...")
+            success = process_live_camera(dark_model_file, light_model_file, similarity_threshold)
             
         elif args.video:
             # Video file mode
@@ -409,14 +529,14 @@ def main():
             # Generate output video filename with timestamp
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             video_name = os.path.splitext(os.path.basename(input_video))[0]
-            output_video = os.path.join(output_dir, f"recognized_{video_name}_{timestamp}.mp4")
+            output_video = os.path.join(output_dir, f"recognized_dual_{video_name}_{timestamp}.mp4")
             
             # Check if input video exists
             if not os.path.exists(input_video):
                 raise FileNotFoundError(f"Input video not found: {input_video}")
             
-            print(f"Processing video file: {input_video}")
-            success = process_video(input_video, model_file, output_video, similarity_threshold)
+            print(f"Processing video file with dual models: {input_video}")
+            success = process_video(input_video, dark_model_file, light_model_file, output_video, similarity_threshold)
             
             if success:
                 print(f"\n=== Face Recognition Complete ===")

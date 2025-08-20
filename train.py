@@ -127,7 +127,7 @@ def manual_pca(data_matrix, n_components=None):
     
     return eigenfaces, mean_face, projected_data, eigenvalues
 
-def save_pca_model(eigenfaces, mean_face, projected_data, eigenvalues, filenames, person_name, model_dir):
+def save_pca_model(eigenfaces, mean_face, projected_data, eigenvalues, filenames, person_name, model_dir, version=None):
     """
     Save the trained PCA model to files
     
@@ -139,6 +139,7 @@ def save_pca_model(eigenfaces, mean_face, projected_data, eigenvalues, filenames
         filenames (list): List of training image filenames
         person_name (str): Name of the person
         model_dir (str): Directory to save model files
+        version (str): Version identifier (e.g., 'dark', 'light')
     """
     os.makedirs(model_dir, exist_ok=True)
     
@@ -150,13 +151,21 @@ def save_pca_model(eigenfaces, mean_face, projected_data, eigenvalues, filenames
         'eigenvalues': eigenvalues,
         'training_filenames': filenames,
         'person_name': person_name,
+        'version': version,
         'training_timestamp': datetime.now().isoformat(),
         'n_components': eigenfaces.shape[1],
         'face_dimensions': eigenfaces.shape[0]
     }
     
-    # Save model using pickle
-    model_path = os.path.join(model_dir, f"{person_name}_pca_model.pkl")
+    # Save model using pickle with version suffix
+    if version:
+        model_filename = f"{person_name}_{version}_pca_model.pkl"
+        metadata_filename = f"{person_name}_{version}_model_info.json"
+    else:
+        model_filename = f"{person_name}_pca_model.pkl"
+        metadata_filename = f"{person_name}_model_info.json"
+    
+    model_path = os.path.join(model_dir, model_filename)
     with open(model_path, 'wb') as f:
         pickle.dump(model_data, f)
     
@@ -165,15 +174,16 @@ def save_pca_model(eigenfaces, mean_face, projected_data, eigenvalues, filenames
     # Save model metadata as JSON for easy inspection
     metadata = {
         'person_name': person_name,
+        'version': version,
         'training_timestamp': model_data['training_timestamp'],
         'n_components': model_data['n_components'],
         'face_dimensions': model_data['face_dimensions'],
         'n_training_images': len(filenames),
         'explained_variance_ratio': (eigenvalues / np.sum(eigenvalues)).tolist()[:10],
-        'model_file': f"{person_name}_pca_model.pkl"
+        'model_file': model_filename
     }
     
-    metadata_path = os.path.join(model_dir, f"{person_name}_model_info.json")
+    metadata_path = os.path.join(model_dir, metadata_filename)
     with open(metadata_path, 'w', encoding='utf-8') as f:
         json.dump(metadata, f, indent=2, ensure_ascii=False)
     
@@ -212,17 +222,23 @@ def visualize_eigenfaces(eigenfaces, mean_face, output_dir, person_name, n_displ
     
     print(f"Saved {n_display} eigenfaces to: {output_dir}")
 
-def main():
+def train_single_model(faces_dir, person_name, model_dir, version, n_components=50):
     """
-    Main function to train PCA model
-    """
-    # Configuration
-    faces_dir = "faces"
-    model_dir = "models"
-    person_name = "Joseph_Lai"
-    n_components = 50  # Number of principal components to keep
+    Train a single PCA model for a specific version
     
+    Args:
+        faces_dir (str): Directory containing face images
+        person_name (str): Name of the person
+        model_dir (str): Directory to save model files
+        version (str): Version identifier (e.g., 'dark', 'light')
+        n_components (int): Number of principal components to keep
+    
+    Returns:
+        bool: True if successful, False otherwise
+    """
     try:
+        print(f"\n=== Training {version.upper()} version model ===")
+        
         # Check if faces directory exists
         if not os.path.exists(faces_dir):
             raise FileNotFoundError(f"Faces directory not found: {faces_dir}")
@@ -235,28 +251,81 @@ def main():
             face_matrix, n_components=n_components
         )
         
-        # Save the trained model
+        # Save the trained model with version
         model_path = save_pca_model(
             eigenfaces, mean_face, projected_data, eigenvalues, 
-            filenames, person_name, model_dir
+            filenames, person_name, model_dir, version
         )
         
-        # Save eigenface visualizations
-        visualize_eigenfaces(eigenfaces, mean_face, model_dir, person_name)
+        # Save eigenface visualizations with version
+        visualize_eigenfaces(eigenfaces, mean_face, model_dir, f"{person_name}_{version}")
         
-        print("\n=== PCA Training Summary ===")
+        print(f"\n=== {version.upper()} PCA Training Summary ===")
         print(f"Person: {person_name}")
+        print(f"Version: {version}")
         print(f"Training images: {len(filenames)}")
         print(f"Principal components: {eigenfaces.shape[1]}")
         print(f"Face dimensions: {eigenfaces.shape[0]}")
         print(f"Model saved to: {model_path}")
         print(f"Total explained variance: {np.sum(eigenvalues / np.sum(eigenvalues)) * 100:.2f}%")
         
+        return True
+        
     except Exception as e:
-        print(f"Error during PCA training: {str(e)}")
+        print(f"Error during {version} PCA training: {str(e)}")
         return False
+
+def main():
+    """
+    Main function to train PCA models for both Dark and Light versions
+    """
+    # Configuration
+    base_faces_dir = "faces"
+    model_dir = "models"
+    person_name = "Joseph_Lai"
+    n_components = 50  # Number of principal components to keep
     
-    return True
+    # Define the two versions to train
+    versions = [
+        {"name": "dark", "dir": os.path.join(base_faces_dir, "Dark_version")},
+        {"name": "light", "dir": os.path.join(base_faces_dir, "Light_version")}
+    ]
+    
+    success_count = 0
+    
+    print("=== Starting PCA Training for Multiple Versions ===")
+    print(f"Person: {person_name}")
+    print(f"Versions to train: {[v['name'] for v in versions]}")
+    
+    # Train each version
+    for version_info in versions:
+        version_name = version_info["name"]
+        version_dir = version_info["dir"]
+        
+        print(f"\n--- Processing {version_name.upper()} version ---")
+        print(f"Looking for images in: {version_dir}")
+        
+        if train_single_model(version_dir, person_name, model_dir, version_name, n_components):
+            success_count += 1
+        else:
+            print(f"Failed to train {version_name} model")
+    
+    # Final summary
+    print("\n" + "="*50)
+    print("=== FINAL TRAINING SUMMARY ===")
+    print(f"Total models trained successfully: {success_count}/{len(versions)}")
+    
+    if success_count == len(versions):
+        print("✅ All models trained successfully!")
+        print(f"Models saved:")
+        for version_info in versions:
+            version_name = version_info["name"]
+            model_file = f"{person_name}_{version_name}_pca_model.pkl"
+            print(f"  - {model_file}")
+        return True
+    else:
+        print("❌ Some models failed to train")
+        return False
 
 if __name__ == "__main__":
     main()
