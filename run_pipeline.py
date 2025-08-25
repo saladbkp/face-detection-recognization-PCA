@@ -200,7 +200,7 @@ Live mode:
     # Handle video input based on mode
     if is_live_mode:
         # Record video from camera
-        if not record_video_from_camera(video_path, duration=20):
+        if not record_video_from_camera(video_path, duration=10):
             print("\n❌ Pipeline aborted: Camera recording failed")
             sys.exit(1)
     else:
@@ -211,9 +211,9 @@ Live mode:
     
     # Check if required scripts exist
     scripts = [
-        ("detection-v2.py", "Face detection script"),
-        ("train-v2.py", "Training script"),
-        ("scan-template-v2.py", "Recognition script")
+        ("detection-v4.py", "Face detection script"),
+        ("train-v4.py", "Training script"),
+        ("scan-template-v4.py", "Recognition script")
     ]
     
     for script, description in scripts:
@@ -225,13 +225,13 @@ Live mode:
     output_dir = create_output_directory(person_name)
     
     # Step 1: Face Detection
-    detection_cmd = ["python", "detection-v2.py", "--video", video_path, "--person", person_name]
+    detection_cmd = ["python", "detection-v4.py", "--video", video_path, "--person", person_name]
     if not run_command(detection_cmd, "Face Detection"):
         print("\n❌ Pipeline aborted: Face detection failed")
         sys.exit(1)
     
     # Step 2: Model Training
-    training_cmd = ["python", "train-v2.py", "--person", person_name]
+    training_cmd = ["python", "train-v4.py", "--person", person_name]
     if not run_command(training_cmd, "Model Training"):
         print("\n❌ Pipeline aborted: Model training failed")
         sys.exit(1)
@@ -239,7 +239,7 @@ Live mode:
     # Step 3: Face Recognition
     if is_live_mode:
         # Use live camera for recognition
-        recognition_cmd = ["python", "scan-template-v2.py", "--live", "--person", person_name]
+        recognition_cmd = ["python", "scan-template-v4.py"]
     else:
         # Use video file for recognition
         recognition_cmd = ["python", "scan-template-v2.py", "--video", video_path, "--person", person_name]

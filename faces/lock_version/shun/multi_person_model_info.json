@@ -1,0 +1,15 @@
+{
+  "training_date": "2025-08-21T03:18:28.232953",
+  "total_faces": 590,
+  "total_persons": 1,
+  "person_id_map": {
+    "shun": 0
+  },
+  "n_components": 590,
+  "explained_variance_ratio": 0.9999999999999998,
+  "face_shape": [
+    64,
+    64
+  ],
+  "eigenfaces_saved": 10
+}

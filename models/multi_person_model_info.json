@@ -1,0 +1,18 @@
+{
+  "training_date": "2025-08-21T03:06:11.837913",
+  "total_faces": 969,
+  "total_persons": 4,
+  "person_id_map": {
+    "Joseph_Lai": 0,
+    "ruisheng": 1,
+    "ruiyi": 2,
+    "shun": 3
+  },
+  "n_components": 100,
+  "explained_variance_ratio": 0.9730257851140809,
+  "face_shape": [
+    64,
+    64
+  ],
+  "eigenfaces_saved": 10
+}

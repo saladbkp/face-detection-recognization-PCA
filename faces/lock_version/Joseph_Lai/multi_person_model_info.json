@@ -1,0 +1,15 @@
+{
+  "training_date": "2025-08-21T03:18:25.024150",
+  "total_faces": 178,
+  "total_persons": 1,
+  "person_id_map": {
+    "Joseph_Lai": 0
+  },
+  "n_components": 178,
+  "explained_variance_ratio": 1.0,
+  "face_shape": [
+    64,
+    64
+  ],
+  "eigenfaces_saved": 10
+}
